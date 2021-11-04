@@ -1,11 +1,7 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'dat.gui'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
-
-// Debug
-const gui = new dat.GUI()
 
 // Stats
 const stats = Stats()
@@ -17,7 +13,6 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 scene.background = new THREE.Color(0x333333)
-scene.fog = new THREE.Fog('white', 15, 90)
 
 // Objects
 const geometry = new THREE.PlaneGeometry(50, 50, 1, 1);
@@ -65,6 +60,10 @@ window.addEventListener('resize', () => {
 	renderer.setSize(sizes.width, sizes.height)
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
+
+const degreesToRadians = (degrees) => {
+	return degrees * (Math.PI / 180)
+}
 
 /**
  * Camera
